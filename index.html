@@ -351,12 +351,12 @@ function submit(){
   if(!consentGiven){alert('Veuillez accepter les conditions de transmission de vos données.');return;}
   data.prenom=p; data.nom=n; data.phone=ph;
 
-  // 1. Fire pixel Lead AVANT la redirection
+  // 1. Fire pixel Lead sur cette page
   if(typeof fbq!=='undefined'){
     fbq('track','Lead',{content_name:'Solaire Suisse Romande'});
   }
 
-  // 2. Envoyer à StaticForms puis rediriger vers merci.html
+  // 2. Envoyer à StaticForms
   fetch('https://api.staticforms.dev/submit',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
@@ -368,10 +368,12 @@ function submit(){
       message:'Propriétaire: '+(data.proprio||'N/A')+'\nType de bien: '+(data.type||'N/A')+'\nTiming: '+(data.timing||'N/A')+'\nTéléphone: '+ph,
       replyTo:'contact@fluxclients.ch'
     })
-  }).finally(function(){
-    // 3. Redirection vers page merci (pixel Lead aussi sur cette page)
+  }).catch(function(){});
+
+  // 3. Attendre 800ms que le pixel soit envoyé PUIS rediriger
+  setTimeout(function(){
     window.location.href='/merci.html';
-  });
+  }, 800);
 }
 </script>
 </body>
