@@ -357,7 +357,11 @@ function submit(){
       message:'Type de bien: '+( data.type||'N/A')+'\nTiming: '+(data.timing||'N/A')+'\nPropriétaire: '+(data.proprio||'N/A')+'\nTéléphone: '+ph,
       replyTo:'contact@fluxclients.ch'
     })
-  }).catch(function(){});
+  }).then(function(){
+    window.location.href='/merci.html';
+  }).catch(function(){
+    window.location.href='/merci.html';
+  });
 
   // Pixel Meta
   if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'Solaire Suisse Romande'})}
