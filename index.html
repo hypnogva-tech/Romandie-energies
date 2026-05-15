@@ -337,7 +337,38 @@ function pick(el,step,key,val){var opts=el.closest('.opts').querySelectorAll('.o
 function notOwner(){document.getElementById('s1').innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:2rem;margin-bottom:10px">😊</div><p style="font-weight:600;margin-bottom:8px">Dommage !</p><p style="font-size:.82rem;color:var(--muted);line-height:1.6">Les subventions sont réservées aux propriétaires. Revenez si vous devenez propriétaire !</p></div>'}
 var consentGiven=false;
 function toggleConsent(){consentGiven=!consentGiven;var check=document.getElementById('consentCheck');var tick=document.getElementById('consentTick');var box=document.getElementById('consentBox');if(consentGiven){check.style.background='#C8922A';tick.style.display='block';box.style.borderColor='#C8922A'}else{check.style.background='#fff';tick.style.display='none';box.style.borderColor='rgba(0,0,0,0.08)'}}
-function submit(){var p=document.getElementById('prenom').value.trim();var n=document.getElementById('nom').value.trim();var ph=document.getElementById('phone').value.trim();if(!p||!n||!ph){alert('Veuillez remplir tous les champs.');return}if(!consentGiven){alert('Veuillez accepter les conditions de transmission de vos données.');return}data.prenom=p;data.nom=n;data.phone=ph;if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'Solaire Suisse Romande'})}document.querySelector('.card-title').style.display='none';document.querySelector('.card-sub').style.display='none';document.getElementById('prog').style.display='none';document.getElementById('s4').classList.remove('show');document.getElementById('ok').classList.add('show')}
+function submit(){
+  var p=document.getElementById('prenom').value.trim();
+  var n=document.getElementById('nom').value.trim();
+  var ph=document.getElementById('phone').value.trim();
+  if(!p||!n||!ph){alert('Veuillez remplir tous les champs.');return}
+  if(!consentGiven){alert('Veuillez accepter les conditions de transmission de vos données.');return}
+  data.prenom=p;data.nom=n;data.phone=ph;
+
+  // Envoyer à StaticForms
+  fetch('https://api.staticforms.dev/submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      apiKey:'sf_e8da9955b64945025e6aa344',
+      subject:'Nouveau lead solaire — Romandie Énergies',
+      name:p+' '+n,
+      phone:ph,
+      message:'Type de bien: '+( data.type||'N/A')+'\nTiming: '+(data.timing||'N/A')+'\nPropriétaire: '+(data.proprio||'N/A')+'\nTéléphone: '+ph,
+      replyTo:'contact@fluxclients.ch'
+    })
+  }).catch(function(){});
+
+  // Pixel Meta
+  if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'Solaire Suisse Romande'})}
+
+  // Afficher succès
+  document.querySelector('.card-title').style.display='none';
+  document.querySelector('.card-sub').style.display='none';
+  document.getElementById('prog').style.display='none';
+  document.getElementById('s4').classList.remove('show');
+  document.getElementById('ok').classList.add('show');
+}
 </script>
 </body>
 </html>
