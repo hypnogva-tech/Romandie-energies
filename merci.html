@@ -5,12 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Merci — Romandie Énergies</title>
 
-<!-- Meta Pixel via Stape CAPIG -->
+<!-- Meta Pixel via Stape CAPIG — Server-side tracking -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://capig.stape.de/lqnbwwyn/pixel.js');
 fbq('init', '27412048241733681');
 fbq('track', 'PageView');
-fbq('track', 'Lead');
+
+// Récupère les données passées dans l'URL et envoie Lead avec matching
+var params = new URLSearchParams(window.location.search);
+var phone = params.get('phone') || '';
+var name = params.get('name') || '';
+var eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2);
+
+fbq('track', 'Lead', {
+  content_name: 'Solaire Suisse Romande'
+}, {
+  eventID: eventId,
+  user_data: {
+    ph: phone,
+    fn: name.split(' ')[0] || '',
+    ln: name.split(' ').slice(1).join(' ') || ''
+  }
+});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=27412048241733681&ev=Lead&noscript=1"/></noscript>
 
