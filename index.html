@@ -154,35 +154,46 @@ footer{padding:24px;border-top:1px solid rgba(255,255,255,.05);text-align:center
       <div class="prog-bar active" id="p1"></div>
       <div class="prog-bar" id="p2"></div>
       <div class="prog-bar" id="p3"></div>
+      <div class="prog-bar" id="p4"></div>
     </div>
 
     <div class="step show" id="s1">
-      <div class="step-q">Votre projet concerne quel type de bien ?</div>
+      <div class="step-q">Êtes-vous propriétaire de votre logement ?</div>
       <div class="opts">
-        <div class="opt" onclick="pick(this,1,'type','maison')"><div class="opt-icon">🏠</div>Maison individuelle</div>
-        <div class="opt" onclick="pick(this,1,'type','commercial')"><div class="opt-icon">🏭</div>Local commercial / industriel</div>
-        <div class="opt" onclick="pick(this,1,'type','appart')"><div class="opt-icon">🏢</div>Appartement / PPE</div>
-        <div class="opt" onclick="notOwner()"><div class="opt-icon">🔑</div>Je suis locataire</div>
+        <div class="opt" onclick="pick(this,1,'proprio','oui')"><div class="opt-icon">✅</div>Oui, je suis propriétaire</div>
+        <div class="opt" onclick="notOwner()"><div class="opt-icon">🔑</div>Non, je suis locataire</div>
       </div>
     </div>
 
     <div class="step" id="s2">
-      <div class="step-q">Quand souhaitez-vous passer au solaire ?</div>
+      <div class="step-q">Votre projet concerne quel type de bien ?</div>
       <div class="opts">
-        <div class="opt" onclick="pick(this,2,'timing','now')"><div class="opt-icon">⚡</div>Le plus tôt possible</div>
-        <div class="opt" onclick="pick(this,2,'timing','6m')"><div class="opt-icon">📅</div>Dans les 6 mois</div>
-        <div class="opt" onclick="pick(this,2,'timing','info')"><div class="opt-icon">🔍</div>Je me renseigne encore</div>
+        <div class="opt" onclick="pick(this,2,'type','maison')"><div class="opt-icon">🏠</div>Maison individuelle</div>
+        <div class="opt" onclick="pick(this,2,'type','commercial')"><div class="opt-icon">🏭</div>Local commercial / industriel</div>
+        <div class="opt" onclick="pick(this,2,'type','appart')"><div class="opt-icon">🏢</div>Appartement / PPE</div>
       </div>
       <button class="btn-back" onclick="goTo(1)">← Retour</button>
     </div>
 
     <div class="step" id="s3">
+      <div class="step-q">Quand souhaitez-vous passer au solaire ?</div>
+      <div class="opts">
+        <div class="opt" onclick="pick(this,3,'timing','now')"><div class="opt-icon">⚡</div>Le plus tôt possible</div>
+        <div class="opt" onclick="pick(this,3,'timing','6m')"><div class="opt-icon">📅</div>Dans les 6 mois</div>
+        <div class="opt" onclick="pick(this,3,'timing','info')"><div class="opt-icon">🔍</div>Je me renseigne encore</div>
+      </div>
+      <button class="btn-back" onclick="goTo(2)">← Retour</button>
+    </div>
+      <button class="btn-back" onclick="goTo(1)">← Retour</button>
+    </div>
+
+    <div class="step" id="s4">
       <div class="step-q">Recevez votre estimation personnalisée :</div>
       <div class="field"><label>Votre prénom</label><input type="text" id="prenom" placeholder="Jean-Pierre" autocomplete="given-name"></div>
       <div class="field"><label>Votre téléphone</label><input type="tel" id="phone" placeholder="+41 79 123 45 67" autocomplete="tel"></div>
       <button class="btn" onclick="submit()">Recevoir mon estimation gratuite →</button>
       <p class="privacy">🔒 Transmises à des installateurs certifiés partenaires. Jamais revendues. Conforme nLPD.</p>
-      <button class="btn-back" onclick="goTo(2)">← Retour</button>
+      <button class="btn-back" onclick="goTo(3)">← Retour</button>
     </div>
 
     <div class="success" id="ok">
@@ -321,10 +332,10 @@ footer{padding:24px;border-top:1px solid rgba(255,255,255,.05);text-align:center
 <script>
 var data={};var cur=1;
 function goTo(n){document.getElementById('s'+cur).classList.remove('show');document.getElementById('s'+n).classList.add('show');cur=n;updateProg()}
-function updateProg(){for(var i=1;i<=3;i++){var b=document.getElementById('p'+i);b.className='prog-bar';if(i<cur)b.classList.add('done');if(i===cur)b.classList.add('active')}}
+function updateProg(){for(var i=1;i<=4;i++){var b=document.getElementById('p'+i);b.className='prog-bar';if(i<cur)b.classList.add('done');if(i===cur)b.classList.add('active')}}
 function pick(el,step,key,val){var opts=el.closest('.opts').querySelectorAll('.opt');opts.forEach(function(o){o.classList.remove('sel')});el.classList.add('sel');data[key]=val;setTimeout(function(){goTo(step+1)},280)}
 function notOwner(){document.getElementById('s1').innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:2rem;margin-bottom:10px">😊</div><p style="font-weight:600;margin-bottom:8px">Dommage !</p><p style="font-size:.82rem;color:var(--muted);line-height:1.6">Les subventions sont réservées aux propriétaires. Revenez si vous devenez propriétaire !</p></div>'}
-function submit(){var p=document.getElementById('prenom').value.trim();var ph=document.getElementById('phone').value.trim();if(!p||!ph){alert('Veuillez remplir tous les champs.');return}data.prenom=p;data.phone=ph;if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'Solaire Suisse Romande'})}document.querySelector('.card-title').style.display='none';document.querySelector('.card-sub').style.display='none';document.getElementById('prog').style.display='none';document.getElementById('s3').classList.remove('show');document.getElementById('ok').classList.add('show')}
+function submit(){var p=document.getElementById('prenom').value.trim();var ph=document.getElementById('phone').value.trim();if(!p||!ph){alert('Veuillez remplir tous les champs.');return}data.prenom=p;data.phone=ph;if(typeof fbq!=='undefined'){fbq('track','Lead',{content_name:'Solaire Suisse Romande'})}document.querySelector('.card-title').style.display='none';document.querySelector('.card-sub').style.display='none';document.getElementById('prog').style.display='none';document.getElementById('s4').classList.remove('show');document.getElementById('ok').classList.add('show')}
 </script>
 </body>
 </html>
