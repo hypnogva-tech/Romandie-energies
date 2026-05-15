@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Panneaux Solaires Suisse Romande — Estimation Gratuite</title>
 <meta name="description" content="Estimation gratuite panneaux solaires Suisse romande. Subventions cantonales jusqu'à 45%. Maisons et locaux commerciaux.">
-  <!-- VÉRIFICATION DOMAINE META -->
 <meta name="facebook-domain-verification" content="hp34n6y8mk0ymweagsx7dj81ojcjli" />
 
 <!-- Meta Pixel via Stape CAPIG — Server-side tracking -->
@@ -18,7 +17,7 @@ fbq('track', 'PageView');
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--sun:#C8922A;--sun2:#E8A020;--burn:#A06010;--bg:#FFFFFF;--card:#F8F5F0;--card2:#F2EDE6;--border:rgba(200,146,42,0.25);--muted:rgba(30,20,10,0.5);--white:#1A1208;--green:#1A7A40}
+:root{--sun:#C8922A;--sun2:#E8A020;--burn:#A06010;--muted:rgba(30,20,10,0.5);--green:#1A7A40}
 html{scroll-behavior:smooth}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#FFFFFF;color:#1A1208;-webkit-font-smoothing:antialiased}
 nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,0.08);background:rgba(255,255,255,0.97);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
@@ -26,7 +25,7 @@ nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:cen
 .logo span{color:var(--sun)}
 .nav-right{display:flex;align-items:center;gap:16px}
 .nav-trust{font-size:.72rem;color:var(--muted)}
-.nav-cta{background:var(--sun);color:#080C10;font-size:.78rem;font-weight:700;padding:8px 16px;border-radius:20px;text-decoration:none;display:none}
+.nav-cta{background:var(--sun);color:#fff;font-size:.78rem;font-weight:700;padding:8px 16px;border-radius:20px;text-decoration:none;display:none}
 @media(min-width:480px){.nav-cta{display:block}}
 .hero{position:relative;overflow:hidden;min-height:55vh;display:flex;align-items:center}
 .hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1400&q=80');background-size:cover;background-position:center;filter:brightness(0.35)}
@@ -39,7 +38,6 @@ h1{font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;line-height:1.1;letter-spa
 h1 em{font-style:normal;color:#F5C040}
 .hero-sub{font-size:.95rem;color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:28px;max-width:500px}
 .stats-bar{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:28px}
-.stat{display:flex;align-items:center;gap:8px}
 .stat-num{font-size:1.4rem;font-weight:800;color:#F5C040}
 .stat-label{font-size:.72rem;color:rgba(255,255,255,.6);line-height:1.3}
 .trust-badges{display:flex;gap:10px;flex-wrap:wrap}
@@ -47,7 +45,7 @@ h1 em{font-style:normal;color:#F5C040}
 .form-section{padding:0 24px 48px;max-width:520px;margin:-40px auto 0;position:relative;z-index:10}
 .card{background:#FFFFFF;border:1px solid rgba(200,146,42,0.2);border-radius:20px;padding:28px 24px;position:relative;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08)}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--burn),var(--sun),var(--sun2))}
-.card-title{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.card-title{font-size:1.1rem;font-weight:700;margin-bottom:4px;color:#1A1208}
 .card-sub{font-size:.78rem;color:var(--muted);margin-bottom:20px}
 .prog{display:flex;gap:5px;margin-bottom:20px}
 .prog-bar{flex:1;height:3px;background:rgba(0,0,0,0.1);border-radius:2px;transition:background .3s}
@@ -58,78 +56,53 @@ h1 em{font-style:normal;color:#F5C040}
 @keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .step-q{font-size:.85rem;color:var(--muted);margin-bottom:12px}
 .opts{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-.opt{display:flex;align-items:center;gap:10px;padding:13px 14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;cursor:pointer;font-size:.88rem;transition:all .2s;-webkit-tap-highlight-color:transparent}
-.opt:hover,.opt:active{background:rgba(232,160,32,.08);border-color:rgba(232,160,32,.3)}
-.opt.sel{background:rgba(232,160,32,.12);border-color:var(--sun);color:var(--sun2)}
-.opt-icon{width:30px;height:30px;background:rgba(255,255,255,.06);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.opt{display:flex;align-items:center;gap:10px;padding:13px 14px;background:#F8F5F0;border:1px solid rgba(0,0,0,0.1);border-radius:10px;cursor:pointer;font-size:.88rem;transition:all .2s;-webkit-tap-highlight-color:transparent;color:#1A1208}
+.opt:hover,.opt:active{background:#FDF5E6;border-color:var(--sun)}
+.opt.sel{background:#FDF5E6;border-color:var(--sun);color:var(--burn);font-weight:600}
+.opt-icon{width:30px;height:30px;background:rgba(200,146,42,0.1);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
 .field{margin-bottom:14px}
 label{display:block;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
 input[type="text"],input[type="tel"]{width:100%;background:#F8F5F0;border:1px solid rgba(0,0,0,0.15);border-radius:10px;padding:13px 16px;color:#1A1208;font-size:1rem;font-family:inherit;transition:border-color .2s;-webkit-appearance:none}
 input[type="text"]:focus,input[type="tel"]:focus{outline:none;border-color:#C8922A;background:#FDF5E6}
 input[type="text"]::placeholder,input[type="tel"]::placeholder{color:rgba(26,18,8,.35)}
-input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;margin-top:2px;accent-color:#C8922A;cursor:pointer;-webkit-appearance:checkbox;appearance:checkbox}
-.btn{width:100%;background:linear-gradient(135deg,var(--burn),var(--sun),var(--sun2));border:none;border-radius:12px;padding:16px;color:#080C10;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .15s,box-shadow .15s;margin-top:4px}
+.btn{width:100%;background:linear-gradient(135deg,var(--burn),var(--sun),var(--sun2));border:none;border-radius:12px;padding:16px;color:#fff;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;transition:transform .15s,box-shadow .15s;margin-top:4px}
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(232,160,32,.35)}
 .btn-back{background:none;border:none;color:var(--muted);font-size:.78rem;cursor:pointer;display:block;text-align:center;width:100%;padding:10px;font-family:inherit;margin-top:4px}
-.privacy{font-size:.68rem;color:rgba(255,255,255,.25);text-align:center;margin-top:10px;line-height:1.5}
-.success{display:none;text-align:center;padding:16px 0}
-.success.show{display:block;animation:up .5s ease}
-.success-icon{font-size:3rem;margin-bottom:12px}
-.success-title{font-size:1.3rem;font-weight:700;color:var(--sun2);margin-bottom:8px}
-.success-text{font-size:.85rem;color:var(--muted);line-height:1.6}
+.privacy{font-size:.68rem;color:rgba(26,18,8,.35);text-align:center;margin-top:10px;line-height:1.5}
+.divider{height:1px;background:rgba(0,0,0,0.08);margin:0 24px}
 .section{padding:48px 24px;max-width:560px;margin:0 auto}
 .section-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun);text-align:center;margin-bottom:12px}
-.section-title{font-size:1.3rem;font-weight:700;text-align:center;margin-bottom:28px;line-height:1.3}
+.section-title{font-size:1.3rem;font-weight:700;text-align:center;margin-bottom:28px;line-height:1.3;color:#1A1208}
 .steps-how{display:flex;flex-direction:column;gap:0}
 .step-how{display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;position:relative}
 .step-how:last-child{padding-bottom:0}
-.step-how::before{content:'';position:absolute;left:19px;top:40px;width:2px;height:calc(100% - 16px);background:rgba(232,160,32,.2)}
+.step-how::before{content:'';position:absolute;left:19px;top:40px;width:2px;height:calc(100% - 16px);background:rgba(200,146,42,0.2)}
 .step-how:last-child::before{display:none}
-.step-circle{width:40px;height:40px;background:var(--sun);color:#080C10;border-radius:50%;font-weight:800;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step-how-title{font-size:.92rem;font-weight:600;margin-bottom:4px}
+.step-circle{width:40px;height:40px;background:var(--sun);color:#fff;border-radius:50%;font-weight:800;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-how-title{font-size:.92rem;font-weight:600;margin-bottom:4px;color:#1A1208}
 .step-how-desc{font-size:.8rem;color:var(--muted);line-height:1.5}
 .benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .benefit{background:#F8F5F0;border:1px solid rgba(0,0,0,0.07);border-radius:14px;padding:16px}
-.benefit-title{font-size:.85rem;font-weight:600;margin-bottom:4px;color:#1A1208}
-.benefit-desc{font-size:.75rem;color:rgba(26,18,8,.55);line-height:1.5}
-.canton{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#F8F5F0;border:1px solid rgba(0,0,0,0.07);border-radius:10px;font-size:.82rem;color:#1A1208}
-.testi{background:#F8F5F0;border:1px solid rgba(0,0,0,0.07);border-radius:14px;padding:18px}
-.testi-list{display:flex;flex-direction:column;gap:12px}
-.testi{background:#F8F5F0;border:1px solid rgba(0,0,0,0.07);border-radius:14px;padding:18px}
-.testi-stars{color:#C8922A;font-size:.85rem;margin-bottom:8px}
-.testi-text{font-size:.83rem;color:rgba(26,18,8,.7);line-height:1.6;margin-bottom:10px;font-style:italic}
-.testi-author{font-size:.75rem;color:rgba(26,18,8,.45);font-weight:600}
-.testi-author{font-size:.75rem;color:rgba(26,18,8,.45);font-weight:600}
-.certif{background:#F8F5F0;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:10px 16px;font-size:.75rem;color:rgba(26,18,8,.6);display:flex;align-items:center;gap:6px}
-footer{padding:24px;border-top:1px solid rgba(0,0,0,0.08);text-align:center;font-size:.68rem;color:rgba(26,18,8,.35);line-height:1.7}
 .benefit-icon{font-size:1.3rem;margin-bottom:8px}
-.benefit-title{font-size:.85rem;font-weight:600;margin-bottom:4px}
+.benefit-title{font-size:.85rem;font-weight:600;margin-bottom:4px;color:#1A1208}
 .benefit-desc{font-size:.75rem;color:var(--muted);line-height:1.5}
-.img-section{padding:0 24px 48px;max-width:560px;margin:0 auto}
-.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:0}
-.img-card{border-radius:14px;overflow:hidden;aspect-ratio:4/3;position:relative}
-.img-card img{width:100%;height:100%;object-fit:cover;display:block}
-.img-card-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.7));padding:20px 12px 10px;font-size:.72rem;font-weight:600}
 .canton-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.canton{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:10px;font-size:.82rem}
+.canton{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#F8F5F0;border:1px solid rgba(0,0,0,0.07);border-radius:10px;font-size:.82rem;color:#1A1208}
 .canton-amount{color:var(--sun);font-weight:600}
 .testi-list{display:flex;flex-direction:column;gap:12px}
-.testi{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:18px}
+.testi{background:#F8F5F0;border:1px solid rgba(0,0,0,0.07);border-radius:14px;padding:18px}
 .testi-stars{color:var(--sun);font-size:.85rem;margin-bottom:8px}
-.testi-text{font-size:.83rem;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:10px;font-style:italic}
-.testi-author{font-size:.75rem;color:var(--muted);font-weight:600}
+.testi-text{font-size:.83rem;color:rgba(26,18,8,.7);line-height:1.6;margin-bottom:10px;font-style:italic}
+.testi-author{font-size:.75rem;color:rgba(26,18,8,.45);font-weight:600}
 .certif-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.certif{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 16px;font-size:.75rem;color:var(--muted);display:flex;align-items:center;gap:6px}
+.certif{background:#F8F5F0;border:1px solid rgba(0,0,0,0.08);border-radius:10px;padding:10px 16px;font-size:.75rem;color:rgba(26,18,8,.6);display:flex;align-items:center;gap:6px}
 .certif-dot{width:8px;height:8px;background:var(--green);border-radius:50%}
-.cta-bottom{text-align:center;padding:40px 24px 60px;background:linear-gradient(180deg,transparent,rgba(232,160,32,.05),transparent)}
-.cta-bottom h2{font-size:1.5rem;font-weight:800;margin-bottom:12px;letter-spacing:-.02em}
+.cta-bottom{text-align:center;padding:40px 24px 60px;background:linear-gradient(180deg,transparent,rgba(200,146,42,.05),transparent)}
+.cta-bottom h2{font-size:1.5rem;font-weight:800;margin-bottom:12px;letter-spacing:-.02em;color:#1A1208}
 .cta-bottom p{color:var(--muted);font-size:.9rem;margin-bottom:24px}
-.btn-cta-scroll{display:inline-block;background:linear-gradient(135deg,var(--burn),var(--sun));color:#080C10;font-weight:700;font-size:.95rem;padding:15px 32px;border-radius:50px;text-decoration:none;cursor:pointer;border:none;font-family:inherit;transition:transform .2s,box-shadow .2s}
-.btn-cta-scroll:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(232,160,32,.3)}
-footer{padding:24px;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:.68rem;color:rgba(255,255,255,.2);line-height:1.7}
-.divider{height:1px;background:rgba(0,0,0,0.08);margin:0 24px}
-.section-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sun);text-align:center;margin-bottom:12px}
-.section-title{font-size:1.3rem;font-weight:700;text-align:center;margin-bottom:28px;line-height:1.3;color:#1A1208}
+.btn-cta-scroll{display:inline-block;background:linear-gradient(135deg,var(--burn),var(--sun));color:#fff;font-weight:700;font-size:.95rem;padding:15px 32px;border-radius:50px;text-decoration:none;cursor:pointer;border:none;font-family:inherit;transition:transform .2s}
+.btn-cta-scroll:hover{transform:translateY(-2px)}
+footer{padding:24px;border-top:1px solid rgba(0,0,0,0.08);text-align:center;font-size:.68rem;color:rgba(26,18,8,.35);line-height:1.7}
 </style>
 </head>
 <body>
@@ -148,7 +121,7 @@ footer{padding:24px;border-top:1px solid rgba(255,255,255,.05);text-align:center
   <div class="hero-content">
     <div class="pill"><div class="dot"></div>Subventions 2026 — budgets limités</div>
     <h1>Réduisez votre facture<br>d'électricité jusqu'à <em>70%</em></h1>
-    <p class="hero-sub">Subventions cantonales jusqu'à <strong style="color:var(--sun2)">45%</strong> de votre installation + déduction fiscale 2029. Maisons individuelles, locaux commerciaux et industriels.</p>
+    <p class="hero-sub">Subventions cantonales jusqu'à <strong style="color:#F5C040">45%</strong> de votre installation + déduction fiscale 2029. Maisons individuelles, locaux commerciaux et industriels.</p>
     <div class="stats-bar">
       <div class="stat"><div class="stat-num">107+</div><div class="stat-label">Estimations<br>réalisées</div></div>
       <div class="stat"><div class="stat-num">24h</div><div class="stat-label">Délai de<br>réponse</div></div>
@@ -201,8 +174,6 @@ footer{padding:24px;border-top:1px solid rgba(255,255,255,.05);text-align:center
       </div>
       <button class="btn-back" onclick="goTo(2)">← Retour</button>
     </div>
-      <button class="btn-back" onclick="goTo(1)">← Retour</button>
-    </div>
 
     <div class="step" id="s4">
       <div class="step-q">Recevez votre estimation personnalisée :</div>
@@ -218,12 +189,6 @@ footer{padding:24px;border-top:1px solid rgba(255,255,255,.05);text-align:center
       <button class="btn" onclick="submit()">Recevoir mon estimation gratuite →</button>
       <p class="privacy">🔒 Transmises à des installateurs certifiés partenaires. Jamais revendues. Conforme nLPD.</p>
       <button class="btn-back" onclick="goTo(3)">← Retour</button>
-    </div>
-
-    <div class="success" id="ok">
-      <div class="success-icon">☀️</div>
-      <div class="success-title">Parfait !</div>
-      <div class="success-text">Votre demande est enregistrée.<br>Un expert certifié vous contacte <strong style="color:var(--sun2)">dans les 24h</strong><br>avec votre estimation et vos aides disponibles.</div>
     </div>
   </div>
 </div>
@@ -248,8 +213,6 @@ footer{padding:24px;border-top:1px solid rgba(255,255,255,.05);text-align:center
     </div>
   </div>
 </div>
-
-
 
 <div class="divider"></div>
 
@@ -332,22 +295,68 @@ footer{padding:24px;border-top:1px solid rgba(255,255,255,.05);text-align:center
 </footer>
 
 <script>
-var data={};var cur=1;
-function goTo(n){document.getElementById('s'+cur).classList.remove('show');document.getElementById('s'+n).classList.add('show');cur=n;updateProg()}
-function updateProg(){for(var i=1;i<=4;i++){var b=document.getElementById('p'+i);b.className='prog-bar';if(i<cur)b.classList.add('done');if(i===cur)b.classList.add('active')}}
-function pick(el,step,key,val){var opts=el.closest('.opts').querySelectorAll('.opt');opts.forEach(function(o){o.classList.remove('sel')});el.classList.add('sel');data[key]=val;setTimeout(function(){goTo(step+1)},280)}
-function notOwner(){document.getElementById('s1').innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:2rem;margin-bottom:10px">😊</div><p style="font-weight:600;margin-bottom:8px">Dommage !</p><p style="font-size:.82rem;color:var(--muted);line-height:1.6">Les subventions sont réservées aux propriétaires. Revenez si vous devenez propriétaire !</p></div>'}
+var data={};
+var cur=1;
 var consentGiven=false;
-function toggleConsent(){consentGiven=!consentGiven;var check=document.getElementById('consentCheck');var tick=document.getElementById('consentTick');var box=document.getElementById('consentBox');if(consentGiven){check.style.background='#C8922A';tick.style.display='block';box.style.borderColor='#C8922A'}else{check.style.background='#fff';tick.style.display='none';box.style.borderColor='rgba(0,0,0,0.08)'}}
+
+function goTo(n){
+  document.getElementById('s'+cur).classList.remove('show');
+  document.getElementById('s'+n).classList.add('show');
+  cur=n;
+  updateProg();
+}
+
+function updateProg(){
+  for(var i=1;i<=4;i++){
+    var b=document.getElementById('p'+i);
+    b.className='prog-bar';
+    if(i<cur)b.classList.add('done');
+    if(i===cur)b.classList.add('active');
+  }
+}
+
+function pick(el,step,key,val){
+  var opts=el.closest('.opts').querySelectorAll('.opt');
+  opts.forEach(function(o){o.classList.remove('sel')});
+  el.classList.add('sel');
+  data[key]=val;
+  setTimeout(function(){goTo(step+1)},280);
+}
+
+function notOwner(){
+  document.getElementById('s1').innerHTML='<div style="text-align:center;padding:20px 0"><div style="font-size:2rem;margin-bottom:10px">😊</div><p style="font-weight:600;margin-bottom:8px;color:#1A1208">Dommage !</p><p style="font-size:.82rem;color:rgba(26,18,8,.6);line-height:1.6">Les subventions sont réservées aux propriétaires. Revenez si vous devenez propriétaire !</p></div>';
+}
+
+function toggleConsent(){
+  consentGiven=!consentGiven;
+  var check=document.getElementById('consentCheck');
+  var tick=document.getElementById('consentTick');
+  var box=document.getElementById('consentBox');
+  if(consentGiven){
+    check.style.background='#C8922A';
+    tick.style.display='block';
+    box.style.borderColor='#C8922A';
+  } else {
+    check.style.background='#fff';
+    tick.style.display='none';
+    box.style.borderColor='rgba(0,0,0,0.08)';
+  }
+}
+
 function submit(){
   var p=document.getElementById('prenom').value.trim();
   var n=document.getElementById('nom').value.trim();
   var ph=document.getElementById('phone').value.trim();
-  if(!p||!n||!ph){alert('Veuillez remplir tous les champs.');return}
-  if(!consentGiven){alert('Veuillez accepter les conditions de transmission de vos données.');return}
-  data.prenom=p;data.nom=n;data.phone=ph;
+  if(!p||!n||!ph){alert('Veuillez remplir tous les champs.');return;}
+  if(!consentGiven){alert('Veuillez accepter les conditions de transmission de vos données.');return;}
+  data.prenom=p; data.nom=n; data.phone=ph;
 
-  // Envoyer à StaticForms
+  // 1. Fire pixel Lead AVANT la redirection
+  if(typeof fbq!=='undefined'){
+    fbq('track','Lead',{content_name:'Solaire Suisse Romande'});
+  }
+
+  // 2. Envoyer à StaticForms puis rediriger vers merci.html
   fetch('https://api.staticforms.dev/submit',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
@@ -356,23 +365,13 @@ function submit(){
       subject:'Nouveau lead solaire — Romandie Énergies',
       name:p+' '+n,
       phone:ph,
-      message:'Type de bien: '+( data.type||'N/A')+'\nTiming: '+(data.timing||'N/A')+'\nPropriétaire: '+(data.proprio||'N/A')+'\nTéléphone: '+ph,
+      message:'Propriétaire: '+(data.proprio||'N/A')+'\nType de bien: '+(data.type||'N/A')+'\nTiming: '+(data.timing||'N/A')+'\nTéléphone: '+ph,
       replyTo:'contact@fluxclients.ch'
     })
-  }).then(function(){
-    window.location.href='/merci.html';
-  }).catch(function(){
+  }).finally(function(){
+    // 3. Redirection vers page merci (pixel Lead aussi sur cette page)
     window.location.href='/merci.html';
   });
-
-
-
-  // Afficher succès
-  document.querySelector('.card-title').style.display='none';
-  document.querySelector('.card-sub').style.display='none';
-  document.getElementById('prog').style.display='none';
-  document.getElementById('s4').classList.remove('show');
-  document.getElementById('ok').classList.add('show');
 }
 </script>
 </body>
