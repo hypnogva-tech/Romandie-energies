@@ -10,7 +10,8 @@
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://capig.stape.de/lqnbwwyn/pixel.js');
 fbq('init', '27412048241733681');
 fbq('track', 'PageView');
-fbq('track', 'Lead');
+var eventId = 'lead_' + new Date().getTime() + '_' + Math.random().toString(36).substring(2);
+fbq('track', 'Lead', {}, {eventID: eventId});
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=27412048241733681&ev=Lead&noscript=1"/></noscript>
 
