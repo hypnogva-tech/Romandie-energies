@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Merci — Romandie Énergies</title>
 
-<!-- Meta Pixel via Stape CAPIG -->
+<!-- Meta Pixel via Stape CAPIG - événement LEAD standard -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://capig.stape.de/lqnbwwyn/pixel.js');
 fbq('init', '27412048241733681');
 fbq('track', 'PageView');
+
+// Événement LEAD standard (c'est celui que Meta attend)
 var eventId = 'lead_' + new Date().getTime() + '_' + Math.random().toString(36).substring(2);
 fbq('track', 'Lead', {}, {eventID: eventId});
 </script>
